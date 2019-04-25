@@ -3,9 +3,9 @@
 #include <SPI.h>
 //#include <Nordic_nRF8001.h>
 //#include <RBL_nRF8001.h>
-#include "iShield.h"
+//#include "iShield.h"
 
-iShield myiShield;
+//iShield myiShield;
 
 // momentary switch
 const int buttonPin = 2;
@@ -113,26 +113,26 @@ void loop()
   // this sets a "normal" state that the code will then measure a difference from. 
   if (buttonState == HIGH) {  
     
-    myiShield.writeConsole("button pressed"); 
+ //   myiShield.writeConsole("button pressed"); 
     refPos = currentBackPos; 
     
     
     char bkpTempString[10];  //  Hold The Convert Data
     dtostrf(currentBackPos,3,2,bkpTempString); // dtostrf( [doubleVar] , [sizeBeforePoint] , [sizeAfterPoint] , [WhereToStoreIt] )
     String bkpString = String(bkpTempString);  // cast it to string from char 
-    myiShield.writeConsole("currentBackPos :");
-    myiShield.writeConsole(bkpString); 
+//    myiShield.writeConsole("currentBackPos :");
+//    myiShield.writeConsole(bkpString); 
     
     char bpTempString[10];  //  Hold The Convert Data
     dtostrf(refPos,3,2,bpTempString); // dtostrf( [doubleVar] , [sizeBeforePoint] , [sizeAfterPoint] , [WhereToStoreIt] )
     String bpString = String(bpTempString);  // cast it to string from char 
-    myiShield.writeConsole("refPos :");
-    myiShield.writeConsole(bpString); 
+//    myiShield.writeConsole("refPos :");
+//    myiShield.writeConsole(bpString); 
   } 
     
   //if backPos is in a bad postion
   if(currentBackPos > refPos + 20){
-    myiShield.writeConsole("wrong");
+//    myiShield.writeConsole("wrong");
   
     digitalWrite(LED1, HIGH);
     digitalWrite(LED2, LOW);
@@ -140,7 +140,7 @@ void loop()
   }
   else {
     if(currentBackPos > refPos + 10){
-      myiShield.writeConsole("warning");
+//      myiShield.writeConsole("warning");
     
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
