@@ -1,8 +1,8 @@
 #include <math.h>
 #include "Boards.h"
 #include <SPI.h>
-#include <Nordic_nRF8001.h>
-#include <RBL_nRF8001.h>
+//#include <Nordic_nRF8001.h>
+//#include <RBL_nRF8001.h>
 #include "iShield.h"
 
 iShield myiShield;
@@ -28,11 +28,12 @@ int refPos = 15;
 
 void setup()
 {
+  /*
   // Init. and start BLE library.
   ble_begin();
   Serial.begin(9600); 
   ble_set_name("BLEShield");
-    
+  */  
   //pinMode(buzzerPin, OUTPUT);
     
   pinMode(LED1, OUTPUT); // Red
@@ -53,9 +54,11 @@ void loop()
   buttonState = digitalRead(buttonPin);
 
   // if msg is sent by bluetooth from the app, write it on the console (not used in that project)
-  myiShield.readConsole();
-  String message = myiShield.incomingData();
-  Serial.println(message);
+  /*
+ myiShield.readConsole();
+ String message = myiShield.incomingData();
+ Serial.println(message);
+ */
   
   
   // Start reading and calculating angles
@@ -99,10 +102,11 @@ void loop()
   // convert position in string to display it
   dtostrf(x,3,2,xTempString); // dtostrf( [doubleVar] , [sizeBeforePoint] , [sizeAfterPoint] , [WhereToStoreIt] )
   String xString = String(xTempString);  // cast it to string from char 
-    
+
+    /*
   // wrtie value that will be read on the mobile device
   myiShield.writeConsole(xString); 
- 
+ */
   currentBackPos = x;
 
   //if the button is pressed set the value of base position to the current back position 
