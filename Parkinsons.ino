@@ -153,6 +153,10 @@ void loop()
   
     }
   }
+// add the code for the vibrating motor HERE
+// ??? use the driver 
+//figure out the threshhold then make a if and else statements regarding it 
+// figure out how to change the voltage thar way 
 
   delay(2000);
   
