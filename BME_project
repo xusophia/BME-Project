@@ -27,26 +27,40 @@ void loop() {
   
   int val2 = analogRead(A2);
   Serial.println(val2 +'\t');
-  
-while  (270> val0 || val0 > 300)
-{
+while (val0 !=0){
+while(  (270 >val0) ||( val0 >310)){
+
     digitalWrite(vibration1, HIGH); // sets the digital pin 13 on
   // input into 
   delay(1000);            // waits for a second 
   digitalWrite(vibration1, LOW);  // sets the digital pin 13 off
   delay(1000);     
-  }  
-
+  val0 = analogRead(A0);
+   val1 = analogRead(A1);
+    val2 = analogRead(A2);
+    Serial.println(val0+'\t');   
+  }
+digitalWrite(vibration1, LOW); 
+ val0 = analogRead(A0);
+   val1 = analogRead(A1);
+    val2 = analogRead(A2);
+    Serial.println(val0+'\t');   
+}
+}
+  /*    
   digitalWrite(vibration2, HIGH); // sets the digital pin 13 on
   // input into 
-  delay(5000);            // waits for a second 
+  delay(500);            // waits for a second 
   digitalWrite(vibration2, LOW);  // sets the digital pin 13 off
-  delay(5000);     
-    
+  delay(500);     
+  val0 = analogRead(A0);
+   val1 = analogRead(A1);
+    val2 = analogRead(A2);
 
 }
-
-void forward(){
+}
+/*void forward()
+{
  setup();
   digitalWrite(vibration1, HIGH); // sets the digital pin 13 on
   // input into 
@@ -55,3 +69,4 @@ void forward(){
   delay(1000);            // waits for a second
   
 }
+*/
