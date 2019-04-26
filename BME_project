@@ -1,0 +1,57 @@
+//Example AnalogRead() code
+int vibration1 = 12;
+int vibration2 = 11;
+
+
+void setup() {
+  Serial.begin(9600);           //  setup serial
+  pinMode(vibration1, OUTPUT);    // sets the digital pin 1 as output
+   //digitalWrite(vibration1, HIGH); 
+    pinMode(vibration2, OUTPUT);    // sets the digital pin 1 as output
+  // digitalWrite(vibration2, HIGH); 
+}
+
+void loop() {
+  int x_input = A0;
+  int y_input = A1;
+  int z_input = A2;
+
+  //int val0 = 0;  // variable to store the value read
+  //int val1 = 1;
+  //int val2 = 2;
+  int val0 = analogRead(A0);  // read the input pin
+  Serial.print(val0+'\t');          // debug value
+ 
+  int val1 = analogRead(A1);
+  Serial.print(val1 +'\t');
+  
+  int val2 = analogRead(A2);
+  Serial.println(val2 +'\t');
+  
+while  (270> val0 || val0 > 300)
+{
+    digitalWrite(vibration1, HIGH); // sets the digital pin 13 on
+  // input into 
+  delay(1000);            // waits for a second 
+  digitalWrite(vibration1, LOW);  // sets the digital pin 13 off
+  delay(1000);     
+  }  
+
+  digitalWrite(vibration2, HIGH); // sets the digital pin 13 on
+  // input into 
+  delay(5000);            // waits for a second 
+  digitalWrite(vibration2, LOW);  // sets the digital pin 13 off
+  delay(5000);     
+    
+
+}
+
+void forward(){
+ setup();
+  digitalWrite(vibration1, HIGH); // sets the digital pin 13 on
+  // input into 
+  delay(1000);            // waits for a second 
+  digitalWrite(vibration1, LOW);  // sets the digital pin 13 off
+  delay(1000);            // waits for a second
+  
+}
