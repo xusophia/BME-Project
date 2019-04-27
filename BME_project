@@ -4,6 +4,11 @@ int vibration2 = 11;
 int vibration3 = 10;
 int vibration4 = 9;
 int reference;
+int i;
+
+int val0 = 0;  // variable to store the value read
+int val1 = 1;
+int val2 = 2;
 
 
 void setup() {
@@ -14,15 +19,19 @@ void setup() {
   // digitalWrite(vibration2, HIGH); 
    pinMode(vibration3, OUTPUT);    // sets the digital pin 1 as output
    pinMode(vibration4, OUTPUT);    // sets the digital pin 1 as output
-    for ( i = 0; i<30; i++){
-        val0 = 0;
-        val1 = 0;
-        val2 = 0;
+   val0 = 0;
+   val1 = 0;
+   val2 = 0;
+    for ( i = 0; i<50; i++){
+        
         val0 += analogRead(A0);  // read the input pin
         val1 += analogRead(A1);
         val2 += analogRead(A2);
       }
-      reference = val0/30;
+      reference = val0/50;
+      Serial.println("sophia");
+      Serial.println(reference);
+      Serial.println("hello world");
 }
 
 void loop() {
@@ -30,39 +39,40 @@ void loop() {
   int y_input = A1;
   int z_input = A2;
 
-  //int val0 = 0;  // variable to store the value read
-  //int val1 = 1;
-  //int val2 = 2;
-  int val0 = analogRead(A0);  // read the input pin
+
+  val0 = analogRead(A0);  // read the input pin
   Serial.print(val0+'\t');          // debug value
  
-  int val1 = analogRead(A1);
+  val1 = analogRead(A1);
   Serial.print(val1 +'\t');
   
-  int val2 = analogRead(A2);
+  val2 = analogRead(A2);
   Serial.println(val2 +'\t');
+   Serial.println("sophia");
+      Serial.println(reference);
+      Serial.println("hello world");  
 while (val0 !=0){
-while(  (reference - 20 > val0) || ( reference + 20 > val0)){
+while(  (reference - 10 > val0) || ( reference + 10 < val0)){
 
     digitalWrite(vibration1, HIGH); // sets the digital pin 13 on
-      delay(100); 
+      delay(50); 
      digitalWrite(vibration2, HIGH); // sets the digital pin 13 on
-       delay(100); 
+       delay(50); 
       digitalWrite(vibration3, HIGH); // sets the digital pin 13 on
-        delay(100); 
+        delay(50); 
        digitalWrite(vibration4, HIGH); // sets the digital pin 13 on
   // input into 
   delay(100);            // waits for a second 
   digitalWrite(vibration1, LOW);  // sets the digital pin 13 off
-    delay(100); 
-   digitalWrite(vibration2, LOW); // sets the digital pin 13 on
-     delay(100); 
-    digitalWrite(vibration3, LOW); // sets the digital pin 13 on
-      delay(100); 
-     digitalWrite(vibration4, LOW); // sets the digital pin 13 on
-  delay(100);     
-  val0 = analogRead(A0);
-   val1 = analogRead(A1);
+  delay(50); 
+  digitalWrite(vibration2, LOW); // sets the digital pin 13 on
+  delay(50); 
+  digitalWrite(vibration3, LOW); // sets the digital pin 13 on
+  delay(50); 
+  digitalWrite(vibration4, LOW); // sets the digital pin 13 on
+  delay(50);     
+    val0 = analogRead(A0);
+    val1 = analogRead(A1);
     val2 = analogRead(A2);
     Serial.println(val0+'\t');   
   }
@@ -88,7 +98,7 @@ digitalWrite(vibration4, LOW);
 
 }
 }
-/*void forward()
+void forward()
 {
  setup();
   digitalWrite(vibration1, HIGH); // sets the digital pin 13 on
@@ -98,3 +108,5 @@ digitalWrite(vibration4, LOW);
   delay(1000);            // waits for a second
   
 }
+
+*/
